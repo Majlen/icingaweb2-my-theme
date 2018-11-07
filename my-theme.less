@@ -1,0 +1,36 @@
+// Different shade of gray
+@gray: lighten(@black, 40%);
+// Black is really black
+@black: black;
+
+// Slightly different color of hovered over items
+// Required to distinguish odd rows
+@tr-active-color: #D0E4EA;
+@tr-hover-color: #E0E8EA;
+
+// Color alternating rows
+tr:nth-child(odd) {
+	background-color: @gray-lighter;
+}
+
+// Bigger hostname + service name
+.state-header {
+	font-size: @font-size-small * 1.25;
+}
+
+// Add line break in between hostname and service name + indentation of service name if there are both identifiers
+table[data-icinga-multiselect-controllers*="services"]:not(.compact) {
+	a.rowaction:before {
+		content: '\A\9';
+		white-space: pre;
+	}
+}
+
+// Show only 1 line of multiline performance data
+.overview-plugin-output {
+	height: 1.3em;
+	overflow: hidden;
+}
+.icinga-module.module-monitoring .overview-plugin-output {
+	min-width: 95%;
+}
